@@ -1,4 +1,4 @@
-/* header part */
+/* header part started */
 .heading-part-1{
     font-family: 'Playfair Display', serif;
     background: #5D5FEF;
@@ -21,6 +21,14 @@
     width: 40px;
     height: 40px;
 }
+.nav-list:hover{
+    background: #5D5FEF;
+    color: white ;
+    font-weight: 600;
+}
+/* header part ended */
+
+/* main body part started */
 .found-items-show{
     background: #FFFFFF;
     border-radius: 8px;
