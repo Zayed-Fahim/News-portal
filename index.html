@@ -59,6 +59,29 @@
                         </div>
                     </div>
             </section>
+            <section>
+                <!-- Modal -->
+                <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="news-title" aria-hidden="true">
+                    <div class="modal-dialog" style="max-width: 700px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="news-title"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <img id="news-img" class="w-100" src="" alt="">
+                                <p><span>Trending Result: </span ><span id="news-trending"></span> </p>
+                                <img id="author-dp" style="height:60px;width:60px;border-radius:50%;object-fit:cover;" src="" alt="">
+                                <h5><span>Name: </span><span id="author-name"></span></h5>
+                                <p><span>Details: </span><span id="news-content"></span></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="d-flex justify-content-lg-between">
                 <div class="d-flex mt-lg-5">
                     <h4>Short By View:&nbsp;&nbsp</h4>

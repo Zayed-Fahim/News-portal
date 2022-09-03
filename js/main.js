@@ -7,8 +7,6 @@ const toggleSpinner = (isLoading) => {
   }
 };
 
-
-
 const loadCategory = () => {
   fetch(`https://openapi.programming-hero.com/api/news/categories`)
     .then((res) => res.json())
@@ -27,43 +25,45 @@ const displayCategory = (categories) => {
             <a class="nav-link nav-list fw-bold" href="#">${category.category_name}</a>
         `;
     categorySection.appendChild(navitem);
-  });
-  filterCategory();
+    });
+    filterCategory();
 };
 loadCategory();
 
 const filterCategory = () => {
-  const allCategories = document.querySelectorAll(".category-item");
-  allCategories.forEach((category) => {
+    const allCategories = document.querySelectorAll(".category-item");
+    allCategories.forEach((category) => {
     category.addEventListener("click", () => {
-      loadNews(category.id, category.dataset.category);
+        loadNews(category.id, category.dataset.category);
+        });
     });
-  });
   // toggleSpinner(true)
 };
 
 const loadNews = (category_Id, categoryName, isHome) => {
-  toggleSpinner(true);
-  fetch(`https://openapi.programming-hero.com/api/news/category/${category_Id}`)
-    .then((res) => res.json())
-    .then((data) => displayNews(data.data, categoryName, isHome))
-    .catch((error) => console.log(error));
+    toggleSpinner(true);
+    fetch(`https://openapi.programming-hero.com/api/news/category/${category_Id}`)
+        .then((res) => res.json())
+        .then((data) => displayNews(data.data, categoryName, isHome))
+        .catch((error) => console.log(error));
 };
 const displayNews = (allNews, categoryName, isHome) => {
-  const counterDiv = document.getElementById("news-counter");
-  const count = allNews.length;
-  counterDiv.innerHTML = `${count} items found for category ${categoryName}`;
-  const newsDiv = document.getElementById("news-section");
-  newsDiv.innerHTML = "";
-  if (isHome === true) {
+    const counterDiv = document.getElementById("news-counter");
+    const count = allNews.length;
+    counterDiv.innerHTML = `${count} items found for category ${categoryName}`;
+    const newsDiv = document.getElementById("news-section");
+    newsDiv.innerHTML = "";
+    if (isHome === true) {
     allNews.sort(function (a, b) {
-      return b.total_view - a.total_view;
+        return b.total_view - a.total_view;
     });
   }
   allNews.forEach((news) => {
     const newsCard = document.createElement("div");
-    newsCard.classList.add("card", "mb-3", "w-100");
-
+    newsCard.classList.add("card", "mb-3", "w-100", "news-card");
+    newsCard.setAttribute("data-bs-toggle", "modal");
+    newsCard.setAttribute("data-bs-target", "#newsModal");
+    newsCard.id = news._id;
     newsCard.innerHTML = `
                     <div class="row g-0 p-lg-3">
                         <div class="col-lg-3">
@@ -122,6 +122,36 @@ const displayNews = (allNews, categoryName, isHome) => {
         `;
     newsDiv.appendChild(newsCard);
   });
+    const newsModal = document.getElementById('newsModal')
+    const newsCards = document.querySelectorAll('.news-card')
+    const newsImg = document.getElementById("news-img");
+    const newsTrending = document.getElementById("news-trending");
+    const authorDp = document.getElementById("author-dp");
+    const authorName = document.getElementById("author-name");
+    const newsContent = document.getElementById("news-content");
+    const newsTitle = document.getElementById("news-title");
+    
+    newsCards.forEach(card => {
+        card.addEventListener('click', () => {
+            fetch(`https://openapi.programming-hero.com/api/news/${card.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    newsImg.setAttribute("src", data.data[0].image_url);
+                    newsTrending.innerHTML = data.data[0].others_info.is_trending = true ? 'Trending' : 'Not Trending'
+                    authorDp.setAttribute("src", data.data[0].author.img);
+                    authorName.innerHTML = data.data[0].author.name
+                      ? data.data[0].author.name
+                        : "No name found";
+                    newsContent.innerHTML = data.data[0].details
+                      ? data.data[0].details
+                        : "No news found";
+                    newsTitle.innerHTML = data.data[0].title
+                      ? data.data[0].title
+                      : "No title found";
+                })
+            .catch(error => console.log(error))
+        })
+    })
   toggleSpinner(false);
 };
 const navHome = () => {
