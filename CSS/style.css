@@ -12,10 +12,12 @@
 .heading-part-3{
     font-family: 'Roboto';
     color: #5D5FEF;
+    text-decoration: none;
 }
 .heading-part-4{
     font-family: 'Roboto';
     color: #A3A3A3;
+    text-decoration: none;
 }
 .header-div-2 img{
     width: 40px;

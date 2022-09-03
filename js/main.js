@@ -1,32 +1,32 @@
 const loadCategory = () => {
-  fetch(`https://openapi.programming-hero.com/api/news/categories`)
+    fetch(`https://openapi.programming-hero.com/api/news/categories`)
     .then((res) => res.json())
     .then((data) => displayCategory(data))
     .catch((error) => console.log(error));
 };
 const displayCategory = (categories) => {
-  const newsCategories = categories.data.news_category;
-  const categorySection = document.getElementById("category-list");
-  newsCategories.forEach((category) => {
+    const newsCategories = categories.data.news_category;
+    const categorySection = document.getElementById("category-list");
+    newsCategories.forEach((category) => {
     const navitem = document.createElement("li");
     navitem.classList.add("nav-item");
     navitem.innerHTML = `
             <a class="nav-link nav-list fw-bold" href="#">${category.category_name}</a>
         `;
     categorySection.appendChild(navitem);
-  });
+    });
 };
 loadCategory();
 
 const loadNews = () => {
-  fetch("https://openapi.programming-hero.com/api/news/category/01")
+    fetch("https://openapi.programming-hero.com/api/news/category/01")
     .then((res) => res.json())
     .then((data) => displayNews(data.data))
     .catch((error) => console.log(error));
 };
 const displayNews = (allNews) => {
-  const newsDiv = document.getElementById("news-section");
-  allNews.forEach((news) => {
+    const newsDiv = document.getElementById("news-section");
+    allNews.forEach((news) => {
     const newsCard = document.createElement("div");
     newsCard.classList.add("card", "mb-3", "w-100");
 
@@ -39,8 +39,8 @@ const displayNews = (allNews) => {
                             <div class="card-body">
                                 <h5 class="card-title">${news.title}</h5>
                                 <p class="card-text">${news.details}</p>
-                                <div class = "d-flex justify-content-lg-between">
-                                    <div class = "d-flex gap-lg-2">
+                                <div class = "d-flex justify-content-lg-between gap-lg-5">
+                                    <div class = "d-flex gap-2">
                                         <img src="${news.author.img}" style = "width: 40px;height: 40px;border-radius: 155px;margin-top:5px;">
                                         <div>
                                         <h6 class="mb-lg-0">${news.author.name}</h6>
@@ -65,6 +65,20 @@ const displayNews = (allNews) => {
                         </div>      
         `;
     newsDiv.appendChild(newsCard);
-  });
+    });
 };
 loadNews();
+
+const categoryId = () => {
+    fetch(`https://openapi.programming-hero.com/api/news/category/01`)
+        .then(res => res.json())
+        .then(data => displayCategoryId(data.data))
+}
+const displayCategoryId = allCategoryId => {
+    console.log(allCategoryId);
+    allCategoryId.forEach(category_Id => {
+        console.log(category_Id.category_Id)
+    })
+}
+categoryId()
+
