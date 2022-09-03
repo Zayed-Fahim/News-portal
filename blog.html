@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap demo</title>
+        <link rel="stylesheet" href="./CSS/blog.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    </head>
+    <body class="container">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        1.Different between var, let and const.
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <table class="table table-dark table-striped fw-semibold container-lg">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No.</th>
+                                    <th scope="col">var</th>
+                                    <th scope="col">let</th>
+                                    <th scope="col">const</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        The scope of a var variable is functional scope.
+                                    </td>
+                                    <td>
+                                        The scope of a let variable is block scope.
+                                    </td>
+                                    <td>
+                                        The scope of a const variable is block scope.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>
+                                        It can be updated and re-declared into the scope.
+                                    </td>
+                                    <td>
+                                        It can be updated but cannot be re-declared into the scope.
+                                    </td>
+                                    <td>
+                                        It cannot be updated or re-declared into the scope.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>
+                                        It can be declared without initialization.
+                                    </td>
+                                    <td>
+                                        It can be declared without initialization.
+                                    </td>
+                                    <td>
+                                        It cannot be declared without initialization.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>
+                                        It can be accessed without initialization as its default value is “undefined”.
+                                    </td>
+                                    <td>
+                                        It cannot be accessed without initialization otherwise it will give ‘referenceError’.
+                                    </td>
+                                    <td>
+                                        It cannot be accessed without initialization, as it cannot be declared without initialization.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>
+                                        hoisting done , with initializing as ‘default’ value
+                                    </td>
+                                    <td>
+                                        Hoisting is done , but not initialized (this is the reason for error when we access the let variable
+                                        before
+                                        declaration/initialization
+                                    </td>
+                                    <td>
+                                        Hoisting is done, but not initialized (this is the reason for error when we access the const variable
+                                        before
+                                        declaration/initialization
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2.Difference between regular functions and arrow functions.
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>Regular functions</strong> created using function declarations or expressions are constructible and callable. Since regular
+                        functions are constructible, they can be called using the new keyword. However, <strong>the arrow functions</strong> are only callable
+                        and not constructible, i.e arrow functions can never be used as constructor functions.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        3.Difference between &nbsp;<strong>map()</strong>,&nbsp <strong>forEach()</strong>,&nbsp <strong>filter()</strong>&nbsp and &nbsp<strong>find()</strong>.
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>The forEach() method</strong> does not create a new array based on the given array. <strong>The map() method</strong> creates an entirely new
+                        array. <strong>The forEach() method</strong> returns “undefined“. <strong>The map() method</strong> returns the newly created array according to the
+                        provided callback function.
+                        <strong>The find() method</strong> is used to find all the descendant elements of the selected element. It finds the element in the DOM
+                        tree by traversing through the root to leaf. <strong>The filter() method</strong> is used to filters all the elements and returns the
+                        element that matches and the element that do not match are removed.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        4.Why we use template string?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Template literals are a new feature introduced in ECMAScript 2015/ ES6. It provides an easy way to create multiline
+                        strings and perform string interpolation. Template literals are the string literals and allow embedded expressions.
+                        
+                        Before ES6, template literals were called as <strong>template strings</strong>. Unlike quotes in strings, template literals are enclosed
+                        by the <strong>backtick (` `)</strong> character (key below the <strong>ESC</strong> key in QWERTY keyboard). Template literals can contain placeholders,
+                        which are indicated by the dollar sign and curly braces <strong>($(expression})</strong>. Inside the backticks, if we want to use an
+                        expression, then we can place that expression in the <strong>($(expression})</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-lg-3">
+            <a class="text-white btn-back-home" href="./index.html">Back to Home</a>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
