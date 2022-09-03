@@ -54,3 +54,17 @@
     border-radius: 5px;
     color: #5D5FEF;
 }
+
+/* footer part */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 83px;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+footer h1{
+    color: #949494;;
+    
+}
