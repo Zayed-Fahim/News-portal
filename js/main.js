@@ -66,12 +66,12 @@ const displayNews = (allNews, categoryName, isHome) => {
     newsCard.id = news._id;
     newsCard.innerHTML = `
                     <div class="row g-0 p-lg-3">
-                        <div class="col-lg-3">
+                        <div class="col-lg-3 ">
                             <img src="${
                               news.thumbnail_url
-                            }" class="img-fluid rounded-start" alt="...">
+                            }" class="img-fluid w-100 rounded-start" alt="...">
                         </div>
-                        <div class="col-lg-8">
+                        <div class="col-lg-9 px-lg-4 mt-lg-5">
                             <div class="card-body">
                                 <h5 class="card-title">${news.title}</h5>
                                 <p class="card-text">${
@@ -80,7 +80,7 @@ const displayNews = (allNews, categoryName, isHome) => {
                                     "$1"
                                   ) + "..."
                                 }</p>
-                                <div class = "d-flex justify-content-lg-between gap-lg-5">
+                                <div class = "d-flex flex-wrap justify-content-between gap-lg-5 mt-lg-5">
                                     <div class = "d-flex gap-2">
                                         <img src="${
                                           news.author.img
